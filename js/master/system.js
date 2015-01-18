@@ -32,7 +32,7 @@ function jor1kGUI(parameters)
     this.params.system.ncores = this.params.system.ncores || 1;
 
     this.params.fs = this.params.fs  || {};
-    this.params.fs.basefsURL = this.params.fs.basefsURL  || "basefs.xml";
+    this.params.fs.basefsURL = this.params.fs.basefsURL  || "basefs.json";
     // this.params.fs.extendedfsURL = this.params.fs.extendedfsURL  || "";
     this.params.fs.earlyload = this.params.fs.earlyload  || [];
     this.params.fs.lazyloadimages = this.params.fs.lazyloadimages  || [];
@@ -42,7 +42,7 @@ function jor1kGUI(parameters)
 
     // ----------------------
 
-    this.worker = new Worker(this.params.path + "jor1k-worker-min.js");
+    this.worker = new Worker(this.params.path + "../bin/jor1k-worker-min.js");
     message.SetWorker(this.worker);
 
     // ----
@@ -94,7 +94,7 @@ function jor1kGUI(parameters)
    this.IgnoreKeys = function() {
       return (
           (this.lastMouseDownTarget != TERMINAL) &&
-          (this.lastMouseDownTarget != this.framebuffer.fbcanvas) &&
+          (this.framebuffer && this.lastMouseDownTarget != this.framebuffer.fbcanvas) &&
           (this.lastMouseDownTarget != this.clipboard)
       );
     }

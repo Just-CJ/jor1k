@@ -1,11 +1,11 @@
+var message = require('../messagehandler');
 
 function SMPCPU(stdlib, foreign, heap) {
 
 "use asm";
 
-//var imul = stdlib.Math.imul;
-var imul = foreign.imul;
 var floor = stdlib.Math.floor;
+var imul = foreign.imul;
 var DebugMessage = foreign.DebugMessage;
 var abort = foreign.abort;
 var ReadMemory32 = foreign.ReadMemory32;
